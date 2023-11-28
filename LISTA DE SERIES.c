@@ -19,7 +19,7 @@ int totalSeries = 0;
 void salvarSeries() {
     FILE *arquivo = fopen("series.txt", "w");
     if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo para salvar as sÈries.\n");
+        printf("Erro ao abrir o arquivo para salvar as s√©ries.\n");
         return;
     }
 
@@ -33,7 +33,7 @@ void salvarSeries() {
 void carregarSeries() {
     FILE *arquivo = fopen("series.txt", "r");
     if (arquivo == NULL) {
-        printf("Arquivo de sÈries n„o encontrado. Criando um novo arquivo.\n");
+        printf("Arquivo de s√©ries n√£o encontrado. Criando um novo arquivo.\n");
         return;
     }
 
@@ -48,8 +48,8 @@ void carregarSeries() {
 
 void ListarSeries() {
 	system ("cls");
-    printf("\n\tLISTA DE S…RIES\n");
-    printf("| %3s | %-36s | %-10s | %-7s | %-7s |\n", "Id", "Nome", "Temporada", "EpisÛdio", "Tempo");
+    printf("\n\tLISTA DE S√âRIES\n");
+    printf("| %3s | %-36s | %-10s | %-7s | %-7s |\n", "Id", "Nome", "Temporada", "Epis√≥dio", "Tempo");
     printf("------------------------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i < totalSeries; i++) {
@@ -60,77 +60,77 @@ void ListarSeries() {
 void CadastrarSerie() {
 	system ("cls");
     if (totalSeries >= MAX_SERIES) {
-        printf("A lista de sÈries est· cheia.\n");
+        printf("A lista de s√©ries est√° cheia.\n");
         return;
     }
 
     struct Serie novaSerie;
     novaSerie.id = totalSeries + 1;
 
-    printf("Digite o nome da sÈrie: ");
+    printf("Digite o nome da s√©rie: ");
     scanf(" %49[^\n]", novaSerie.nome);
 
     printf("Digite a Temporada: ");
     scanf("%d", &novaSerie.temporada);
 
-    printf("Digite o episÛdio: ");
+    printf("Digite o epis√≥dio: ");
     scanf("%d", &novaSerie.episodio);
 
-    printf("Digite o tempo da sÈrie: ");
+    printf("Digite o tempo da s√©rie: ");
     scanf("%d", &novaSerie.tempo);
 
     series[totalSeries++] = novaSerie;
-    printf("SÈrie cadastrada com sucesso!\n");
+    printf("S√©rie cadastrada com sucesso!\n");
 }
 
 void EditarSerie() {
 	system ("cls");
 	
 	if (totalSeries == 0) {
-		printf("A lista de sÈries est· vazia.\n");
+		printf("A lista de s√©ries est√° vazia.\n");
 		return;
 	}
 	
 	int idEditar;
-	printf("Digite o ID da sÈrie que deseja editar: ");
+	printf("Digite o ID da s√©rie que deseja editar: ");
 	scanf("%d", &idEditar);
 	
 	int seriesEncontrada = 0;
 	
 	for (int i = 0; i < totalSeries; i++) {
 		if (series[i].id == idEditar) {
-			printf("Digite o novo nome da sÈrie: ");
+			printf("Digite o novo nome da s√©rie: ");
 			scanf(" %49[^\n]", series[i].nome);
 			
-			printf("Digite a nova temporada da sÈrie: ");
+			printf("Digite a nova temporada da s√©rie: ");
 			scanf("%d", &series[i].temporada);
 			
-			printf("Digite o novo episÛdio da sÈrie: ");
+			printf("Digite o novo epis√≥dio da s√©rie: ");
 			scanf("%d", &series[i].episodio);
 			
-			printf("Digite o novo Tempo da sÈrie: ");
+			printf("Digite o novo Tempo da s√©rie: ");
 			scanf("%d", &series[i].tempo);
 			
-			printf("SÈrie editada com sucesso!\n");
+			printf("S√©rie editada com sucesso!\n");
 			seriesEncontrada = 1;
 			break;
 		}
 		
 	}
 	if (!seriesEncontrada) {
-		printf("SÈrie com o ID %d n„o encontado.\n", idEditar);
+		printf("S√©rie com o ID %d n√£o encontado.\n", idEditar);
 	}
 }
 
 void ExcluirSerie() {
 	system ("cls");
     if (totalSeries == 0) {
-        printf("A lista de sÈries est· vazia.\n");
+        printf("A lista de s√©ries est√° vazia.\n");
         return;
     }
 
     int idExcluir;
-    printf("Digite o ID da sÈrie que deseja excluir: ");
+    printf("Digite o ID da s√©rie que deseja excluir: ");
     scanf("%d", &idExcluir);
 
     int serieEncontrada = 0;
@@ -142,14 +142,14 @@ void ExcluirSerie() {
             }
 
             totalSeries--;
-            printf("SÈrie excluÌda com sucesso!\n");
+            printf("S√©rie exclu√≠da com sucesso!\n");
             serieEncontrada = 1;
             break;
         }
     }
 
     if (!serieEncontrada) {
-        printf("SÈrie com o ID %d n„o encontrada.\n", idExcluir);
+        printf("S√©rie com o ID %d n√£o encontrada.\n", idExcluir);
     }
 }
 
@@ -159,12 +159,12 @@ void MenuPrincipal() {
 
     do {
         printf("\nMENU PRINCIPAL\n");
-        printf("1 - Listar sÈries\n");
-        printf("2 - Cadastrar sÈrie\n");
-        printf("3 - Excluir sÈrie\n");
-        printf("4 - Editar SÈrie\n");
+        printf("1 - Listar s√©ries\n");
+        printf("2 - Cadastrar s√©rie\n");
+        printf("3 - Excluir s√©rie\n");
+        printf("4 - Editar S√©rie\n");
         printf("5 - Sair\n");
-        printf("Escolha uma opÁ„o: ");
+        printf("Escolha uma op√ß√£o: ");
         scanf("%d", &escolha);
 
         switch (escolha) {
@@ -184,7 +184,7 @@ void MenuPrincipal() {
                 printf("Saindo do sistema...\n");
                 break;
             default:
-                printf("OpÁ„o inv·lida. Tente novamente.\n");
+                printf("Op√ß√£o inv√°lida. Tente novamente.\n");
         }
     } while (escolha != 5);
 }
